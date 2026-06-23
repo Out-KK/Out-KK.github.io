@@ -13,17 +13,17 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="概述本篇讲解如何快速配置MSPM0G系列MCU的ADC工作在4MSPS的采样率，有关具体原理的讲解请移步至MSPM0G系列 ADC-数据流讲解 sysconfig配置主要配置项 123456TIMER&#x2F;|——Basic Configuration&#x2F;|   |——Timer Mode |   |——Desired Timer Period|   |——Start Timer|——Event Con">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/TIMER-Basic-Configuration.png">
-<meta property="og:image" content="http://example.com/TIMER-Event-Configuration.png">
-<meta property="og:image" content="http://example.com/Basic-Configuration_1.png">
-<meta property="og:image" content="http://example.com/Basic-Configuration_2.png">
-<meta property="og:image" content="http://example.com/Advanced-Configuration.png">
-<meta property="og:image" content="http://example.com/Interrupt-Configuration.png">
-<meta property="og:image" content="http://example.com/DMA-Configuration.png">
-<meta property="og:image" content="http://example.com/ADC-Event-Configuration.png">
-<meta property="og:image" content="http://example.com/PinMux.png">
+<meta property="og:image" content="http://example.com/.com//TIMER-Basic-Configuration.png">
+<meta property="og:image" content="http://example.com/.com//TIMER-Event-Configuration.png">
+<meta property="og:image" content="http://example.com/.com//Basic-Configuration_1.png">
+<meta property="og:image" content="http://example.com/.com//Basic-Configuration_2.png">
+<meta property="og:image" content="http://example.com/.com//Advanced-Configuration.png">
+<meta property="og:image" content="http://example.com/.com//Interrupt-Configuration.png">
+<meta property="og:image" content="http://example.com/.com//DMA-Configuration.png">
+<meta property="og:image" content="http://example.com/.com//ADC-Event-Configuration.png">
+<meta property="og:image" content="http://example.com/.com//PinMux.png">
 <meta property="article:published_time" content="2026-06-23T04:21:20.000Z">
-<meta property="article:modified_time" content="2026-06-23T12:27:29.361Z">
+<meta property="article:modified_time" content="2026-06-23T12:40:45.776Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="ADC">
 <meta property="article:tag" content="MSPM0G">
@@ -31,7 +31,7 @@
 <meta property="article:tag" content="TI">
 <meta property="article:tag" content="快速配置">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/TIMER-Basic-Configuration.png">
+<meta name="twitter:image" content="http://example.com/.com//TIMER-Basic-Configuration.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -115,49 +115,49 @@
 <h2 id="sysconfig配置"><a href="#sysconfig配置" class="headerlink" title="sysconfig配置"></a>sysconfig配置</h2><p>主要配置项</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TIMER/</span><br><span class="line">|——Basic Configuration/</span><br><span class="line">|   |——Timer Mode </span><br><span class="line">|   |——Desired Timer Period</span><br><span class="line">|   |——Start Timer</span><br><span class="line">|——Event Configuration</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ADC12/</span><br><span class="line">|——Basic Configuration/</span><br><span class="line">|   |——Sample Clock Configuration</span><br><span class="line">|   |——Sampling Mode Configuration/</span><br><span class="line">|       |——ADC Conversion Memory Configurations/</span><br><span class="line">|           |——Optional Configuration</span><br><span class="line">|——Advanced Configuration</span><br><span class="line">|——Interrupt Configuration</span><br><span class="line">|——DMA Configuration/</span><br><span class="line">|   |——DMA Channel</span><br><span class="line">|——Event Configuration</span><br><span class="line">|——PinMux</span><br></pre></td></tr></table></figure>
-<p><img src="/./TIMER-Basic-Configuration.png" alt="TIMER-Basic-Configuration"></p>
+<p><img src="/.com//TIMER-Basic-Configuration.png" alt="TIMER-Basic-Configuration"></p>
 <div align="center">
   <em>TIMER-图1</em>
 </div>
 
-<p><img src="/./TIMER-Event-Configuration.png" alt="TIMER-Event-Configuration"></p>
+<p><img src="/.com//TIMER-Event-Configuration.png" alt="TIMER-Event-Configuration"></p>
 <div align="center">
   <em>TIMER-图2</em>
 </div>
 
 <hr>
-<p><img src="/./Basic-Configuration_1.png" alt="Basic-Configuration_1"></p>
+<p><img src="/.com//Basic-Configuration_1.png" alt="Basic-Configuration_1"></p>
 <div align="center">
   <em>ADC-图1</em>
 </div>
 
 <p>如果<code>ULPCLK</code>和此处不一样，请调整一致。若确实要使用其它时钟频率，请移步至<a href="todo">MSPM0G系列 ADC-数据流讲解</a></p>
-<p><img src="/./Basic-Configuration_2.png" alt="Basic-Configuration_2"></p>
+<p><img src="/.com//Basic-Configuration_2.png" alt="Basic-Configuration_2"></p>
 <div align="center">
   <em>ADC-图2</em>
 </div>
 
-<p><img src="/./Advanced-Configuration.png" alt="Advanced-Configuration"></p>
+<p><img src="/.com//Advanced-Configuration.png" alt="Advanced-Configuration"></p>
 <div align="center">
   <em>ADC-图3</em>
 </div>
 
-<p><img src="/./Interrupt-Configuration.png" alt="Interrupt-Configuration"></p>
+<p><img src="/.com//Interrupt-Configuration.png" alt="Interrupt-Configuration"></p>
 <div align="center">
   <em>ADC-图4</em>
 </div>
 
-<p><img src="/./DMA-Configuration.png" alt="DMA-Configuration"></p>
+<p><img src="/.com//DMA-Configuration.png" alt="DMA-Configuration"></p>
 <div align="center">
   <em>ADC-图5</em>
 </div>
 
-<p><img src="/./ADC-Event-Configuration.png" alt="ADC-Event-Configuration"></p>
+<p><img src="/.com//ADC-Event-Configuration.png" alt="ADC-Event-Configuration"></p>
 <div align="center">
   <em>ADC-图6</em>
 </div>
 
-<p><img src="/./PinMux.png" alt="PinMux"></p>
+<p><img src="/.com//PinMux.png" alt="PinMux"></p>
 <div align="center">
   <em>ADC-图7</em>
 </div>
