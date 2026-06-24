@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="https://out-kk.github.io/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -62,7 +62,7 @@
         <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://out-kk.github.io"></form>
       </div>
     </div>
   </div>
@@ -94,59 +94,70 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <!-- 图片定义区域（通常放在文末或单独区域） -->
+<!-- [TIMER-Basic-Configuration]: MSPM0G系列-ADC-4MSPS-快速配置/TIMER-Basic-Configuration.png -->
+<!-- [TIMER-Event-Configuration]: ./MSPM0G系列-ADC-4MSPS-快速配置/TIMER-Event-Configuration.png -->
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本篇讲解如何快速配置MSPM0G系列MCU的ADC工作在4MSPS的采样率，有关具体原理的讲解请移步至<a href="todo">MSPM0G系列 ADC-数据流讲解</a></p>
 <h2 id="sysconfig配置"><a href="#sysconfig配置" class="headerlink" title="sysconfig配置"></a>sysconfig配置</h2><p>主要配置项</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TIMER/</span><br><span class="line">|——Basic Configuration/</span><br><span class="line">|   |——Timer Mode </span><br><span class="line">|   |——Desired Timer Period</span><br><span class="line">|   |——Start Timer</span><br><span class="line">|——Event Configuration</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ADC12/</span><br><span class="line">|——Basic Configuration/</span><br><span class="line">|   |——Sample Clock Configuration</span><br><span class="line">|   |——Sampling Mode Configuration/</span><br><span class="line">|       |——ADC Conversion Memory Configurations/</span><br><span class="line">|           |——Optional Configuration</span><br><span class="line">|——Advanced Configuration</span><br><span class="line">|——Interrupt Configuration</span><br><span class="line">|——DMA Configuration/</span><br><span class="line">|   |——DMA Channel</span><br><span class="line">|——Event Configuration</span><br><span class="line">|——PinMux</span><br></pre></td></tr></table></figure>
-<p><img src="/.com//TIMER-Basic-Configuration.png" alt="TIMER-Basic-Configuration"></p>
+<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/TIMER-Basic-Configuration.png" class="">
+<!-- ![TIMER-Basic-Configuration](./MSPM0G系列-ADC-4MSPS-快速配置/TIMER-Basic-Configuration.png) -->
 <div align="center">
-  <em>TIMER-图1</em>
+  <em>TIMER Basic-Configuration 图1</em>
 </div>
 
-<p><img src="/.com//TIMER-Event-Configuration.png" alt="TIMER-Event-Configuration"></p>
+<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/TIMER-Event-Configuration.png" class="">
+<!-- ![TIMER-Event-Configuration] -->
 <div align="center">
-  <em>TIMER-图2</em>
+  <em>TIMER Event-Configuration 图2</em>
 </div>
 
 <hr>
-<p><img src="/.com//Basic-Configuration_1.png" alt="Basic-Configuration_1"></p>
+<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Basic-Configuration_1.png" class="">
+<!-- ![Basic-Configuration_1] -->
 <div align="center">
-  <em>ADC-图1</em>
+  <em>ADC Basic-Configuration_1 图1</em>
 </div>
 
 <p>如果<code>ULPCLK</code>和此处不一样，请调整一致。若确实要使用其它时钟频率，请移步至<a href="todo">MSPM0G系列 ADC-数据流讲解</a></p>
-<p><img src="/.com//Basic-Configuration_2.png" alt="Basic-Configuration_2"></p>
+<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Basic-Configuration_2.png" class="">
+<!-- ![Basic-Configuration_2] -->
 <div align="center">
-  <em>ADC-图2</em>
+  <em>ADC Basic-Configuration_2 图2</em>
 </div>
 
-<p><img src="/.com//Advanced-Configuration.png" alt="Advanced-Configuration"></p>
+<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Advanced-Configuration.png" class="">
+<!-- ![Advanced-Configuration] -->
 <div align="center">
-  <em>ADC-图3</em>
+  <em>ADC Advanced-Configuration 图3</em>
 </div>
 
-<p><img src="/.com//Interrupt-Configuration.png" alt="Interrupt-Configuration"></p>
+<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Interrupt-Configuration.png" class="">
+<!-- ![Interrupt-Configuration] -->
 <div align="center">
-  <em>ADC-图4</em>
+  <em>ADC Interrupt-Configuration 图4</em>
 </div>
 
-<p><img src="/.com//DMA-Configuration.png" alt="DMA-Configuration"></p>
+<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/DMA-Configuration.png" class="">
+<!-- ![DMA-Configuration] -->
 <div align="center">
-  <em>ADC-图5</em>
+  <em>ADC DMA-Configuration 图5</em>
 </div>
 
-<p><img src="/.com//ADC-Event-Configuration.png" alt="ADC-Event-Configuration"></p>
+<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/ADC-Event-Configuration.png" class="">
+<!-- ![ADC-Event-Configuration] -->
 <div align="center">
-  <em>ADC-图6</em>
+  <em>ADC ADC-Event-Configuration 图6</em>
 </div>
 
-<p><img src="/.com//PinMux.png" alt="PinMux"></p>
+<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/PinMux.png" class="">
+<!-- ![PinMux] -->
 <div align="center">
-  <em>ADC-图7</em>
+  <em>ADC PinMux 图7</em>
 </div>
 
 <h2 id="简易验证代码"><a href="#简易验证代码" class="headerlink" title="简易验证代码"></a>简易验证代码</h2><p>基于<code>CCS</code>开发，如有快速验证需求，可使用<code>uniflash</code>下载文末的<code>txt</code>文件到<code>MCU</code>上运行查看结果。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">4MSPS ADC简易验证工程</span></span><br><span class="line"><span class="comment">uart为uart0，rx-PA11，tx-PA10，波特率567000</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ti_msp_dl_config.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stdio.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ADC_SAMPLE_SIZE (1080)</span></span><br><span class="line"><span class="type">uint16_t</span> gADCSamples[ADC_SAMPLE_SIZE];</span><br><span class="line"><span class="keyword">volatile</span> <span class="type">bool</span> gCheckADC;<span class="comment">//关键变量使用volatile关键字防止优化，并使其状态严格可控</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">UART_transmit_for_vofa</span><span class="params">(<span class="type">uint16_t</span> data)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    SYSCFG_DL_init();</span><br><span class="line">    DL_DMA_setSrcAddr(DMA, DMA_CH0_CHAN_ID, (<span class="type">uint32_t</span>) DL_ADC12_getFIFOAddress(ADC_4MSPS_INST));</span><br><span class="line">    DL_DMA_setDestAddr(DMA, DMA_CH0_CHAN_ID, (<span class="type">uint32_t</span>) &amp;gADCSamples[<span class="number">0</span>]);</span><br><span class="line">    DL_DMA_enableChannel(DMA, DMA_CH0_CHAN_ID);</span><br><span class="line"></span><br><span class="line">    NVIC_EnableIRQ(ADC_4MSPS_INST_INT_IRQN);</span><br><span class="line">    DL_Timer_startCounter(TIMER_0_INST);</span><br><span class="line">    </span><br><span class="line">    gCheckADC = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (gCheckADC) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; ADC_SAMPLE_SIZE; ++i) </span><br><span class="line">                UART_transmit_for_vofa(gADCSamples[i]);</span><br><span class="line">            DL_Timer_startCounter(TIMER_0_INST);</span><br><span class="line">            gCheckADC = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">ADC_4MSPS_INST_IRQHandler</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (DL_ADC12_getPendingInterrupt(ADC_4MSPS_INST)) &#123;</span><br><span class="line">        <span class="keyword">case</span> DL_ADC12_IIDX_DMA_DONE:</span><br><span class="line">            DL_Timer_stopCounter(TIMER_0_INST);</span><br><span class="line">            gCheckADC = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//该函数用于向vofa发送FireWater格式的数据，进行可视化</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">UART_transmit_for_vofa</span><span class="params">(<span class="type">uint16_t</span> data)</span> &#123;</span><br><span class="line">    <span class="type">char</span> buf[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="type">char</span> *p = buf; </span><br><span class="line">    <span class="built_in">sprintf</span>(buf, <span class="string">&quot;%d\n&quot;</span>, data);</span><br><span class="line">    <span class="keyword">while</span> (*p != <span class="string">&#x27;\0&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (DL_UART_isBusy(UART_0_INST) == <span class="literal">true</span>) &#123;&#125;</span><br><span class="line">        DL_UART_Main_transmitData(UART_0_INST, *p);</span><br><span class="line">        p++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">4MSPS ADC简易验证工程</span></span><br><span class="line"><span class="comment">uart为uart0，rx-PA11，tx-PA10，波特率567000</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ti_msp_dl_config.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stdio.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ADC_SAMPLE_SIZE (1080)</span></span><br><span class="line"><span class="type">uint16_t</span> gADCSamples[ADC_SAMPLE_SIZE];</span><br><span class="line"><span class="keyword">volatile</span> <span class="type">bool</span> gCheckADC;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">UART_transmit_for_vofa</span><span class="params">(<span class="type">uint16_t</span> data)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    SYSCFG_DL_init();</span><br><span class="line">    DL_DMA_setSrcAddr(DMA, DMA_CH0_CHAN_ID, (<span class="type">uint32_t</span>) DL_ADC12_getFIFOAddress(ADC_4MSPS_INST));</span><br><span class="line">    DL_DMA_setDestAddr(DMA, DMA_CH0_CHAN_ID, (<span class="type">uint32_t</span>) &amp;gADCSamples[<span class="number">0</span>]);</span><br><span class="line">    DL_DMA_enableChannel(DMA, DMA_CH0_CHAN_ID);</span><br><span class="line"></span><br><span class="line">    NVIC_EnableIRQ(ADC_4MSPS_INST_INT_IRQN);</span><br><span class="line">    DL_Timer_startCounter(TIMER_0_INST);</span><br><span class="line">    </span><br><span class="line">    gCheckADC = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (gCheckADC) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; ADC_SAMPLE_SIZE; ++i) </span><br><span class="line">                UART_transmit_for_vofa(gADCSamples[i]);</span><br><span class="line">            DL_Timer_startCounter(TIMER_0_INST);</span><br><span class="line">            gCheckADC = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">ADC_4MSPS_INST_IRQHandler</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (DL_ADC12_getPendingInterrupt(ADC_4MSPS_INST)) &#123;</span><br><span class="line">        <span class="keyword">case</span> DL_ADC12_IIDX_DMA_DONE:</span><br><span class="line">            DL_Timer_stopCounter(TIMER_0_INST);</span><br><span class="line">            gCheckADC = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//该函数用于向vofa发送FireWater格式的数据，进行可视化</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">UART_transmit_for_vofa</span><span class="params">(<span class="type">uint16_t</span> data)</span> &#123;</span><br><span class="line">    <span class="type">char</span> buf[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="type">char</span> *p = buf; </span><br><span class="line">    <span class="built_in">sprintf</span>(buf, <span class="string">&quot;%d\n&quot;</span>, data);</span><br><span class="line">    <span class="keyword">while</span> (*p != <span class="string">&#x27;\0&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (DL_UART_isBusy(UART_0_INST) == <span class="literal">true</span>) &#123;&#125;</span><br><span class="line">        DL_UART_Main_transmitData(UART_0_INST, *p);</span><br><span class="line">        p++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
 <h2 id="7-参考资料"><a href="#7-参考资料" class="headerlink" title="7. 参考资料"></a>7. 参考资料</h2><ul>
@@ -157,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/" data-id="cuidTRhUgjmQ-iXVDcgK3W3O2" data-title="MSPM0G系列 ADC-4MSPS-快速配置" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://out-kk.github.io/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/" data-id="cuidNnOHSM3hVTZgdT4xL3VuY" data-title="MSPM0G系列 ADC-4MSPS-快速配置" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -210,7 +221,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/06/22/hello-world/" data-id="cuidAJVCpKDhbkthGxYpQ91pO" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://out-kk.github.io/2026/06/22/hello-world/" data-id="cuid09-UJ4cUylRLaC1bpLpO4" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
