@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MSPM0G系列 ADC-4MSPS-快速配置 | Hexo</title>
-  <meta name="keywords" content=" MSPM0G , ADC , TI , MSPS , 快速配置 ">
-  <meta name="description" content="MSPM0G系列 ADC-4MSPS-快速配置 | Hexo">
+  <title>Hexo</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="OutKK ToDo这里是待办区喵~什么都没有喵~如果你到了这里可以去催更 OutKK 喵~">
 <meta property="og:type" content="article">
@@ -288,42 +288,17 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-MSPM0G系列-ADC-4MSPS-快速配置" class="article article-type-post" itemscope itemprop="blogPost">
-    
-        <h1 class="article-title">MSPM0G系列 ADC-4MSPS-快速配置</h1>
+        <article id="post-todo" class="article article-type-post" itemscope itemprop="blogPost">
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="MCU">MCU</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            <i class="iconfont icon-tag"></i>
-            
-            <a class="color2">MSPM0G</a>
-            
-            <a class="color4">ADC</a>
-            
-            <a class="color3">TI</a>
-            
-            <a class="color5">MSPS</a>
-            
-            <a class="color5">快速配置</a>
-            
-        </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2026-07-01 22:34:56'>2026-06-23 12:21</time>
+            发布时间 : <time class="date" title='最后更新: 2026-07-01 22:09:34'>2026-07-01 22:06</time>
         
     </div>
     <div class="article-meta">
@@ -356,7 +331,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sysconfig%E9%85%8D%E7%BD%AE"><span class="toc-text">sysconfig配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E6%98%93%E9%AA%8C%E8%AF%81%E4%BB%A3%E7%A0%81"><span class="toc-text">简易验证代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OutKK-ToDo"><span class="toc-text">OutKK ToDo</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -372,151 +347,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!-- 图片定义区域（通常放在文末或单独区域） -->
-<!-- [TIMER-Basic-Configuration]: MSPM0G系列-ADC-4MSPS-快速配置/TIMER-Basic-Configuration.png -->
-<!-- [TIMER-Event-Configuration]: ./MSPM0G系列-ADC-4MSPS-快速配置/TIMER-Event-Configuration.png -->
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本篇讲解如何快速配置MSPM0G系列MCU的ADC工作在4MSPS的采样率，有关具体原理的讲解请移步至<a href="/2026/06/28/MSPM0G%E7%B3%BB%E5%88%97-ADC-%E6%95%B0%E6%8D%AE%E6%B5%81%E8%AE%B2%E8%A7%A3/" title="MSPM0G系列 ADC-数据流讲解">MSPM0G系列 ADC-数据流讲解</a></p>
-<h2 id="sysconfig配置"><a href="#sysconfig配置" class="headerlink" title="sysconfig配置"></a>sysconfig配置</h2><p>主要配置项</p>
-<pre><code>TIMER/
-|——Basic Configuration/
-|   |——Timer Mode 
-|   |——Desired Timer Period
-|   |——Start Timer
-|——Event Configuration
-</code></pre>
-<pre><code>ADC12/
-|——Basic Configuration/
-|   |——Sample Clock Configuration
-|   |——Sampling Mode Configuration/
-|       |——ADC Conversion Memory Configurations/
-|           |——Optional Configuration
-|——Advanced Configuration
-|——Interrupt Configuration
-|——DMA Configuration/
-|   |——DMA Channel
-|——Event Configuration
-|——PinMux
-</code></pre>
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/TIMER-Basic-Configuration.png" class="">
-<!-- ![TIMER-Basic-Configuration](./MSPM0G系列-ADC-4MSPS-快速配置/TIMER-Basic-Configuration.png) -->
-<div align="center">
-  <em>TIMER Basic-Configuration 图1</em>
-</div>
-
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/TIMER-Event-Configuration.png" class="">
-<!-- ![TIMER-Event-Configuration] -->
-<div align="center">
-  <em>TIMER Event-Configuration 图2</em>
-</div>
-
-<hr>
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Basic-Configuration_1.png" class="">
-<!-- ![Basic-Configuration_1] -->
-<div align="center">
-  <em>ADC Basic-Configuration_1 图1</em>
-</div>
-
-<p>如果<code>ULPCLK</code>和此处不一样，请调整一致。若确实要使用其它时钟频率，请移步至<a href="/2026/06/28/MSPM0G%E7%B3%BB%E5%88%97-ADC-%E6%95%B0%E6%8D%AE%E6%B5%81%E8%AE%B2%E8%A7%A3/" title="MSPM0G系列 ADC-数据流讲解">ADC-数据流讲解</a></p>
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Basic-Configuration_2.png" class="">
-<!-- ![Basic-Configuration_2] -->
-<div align="center">
-  <em>ADC Basic-Configuration_2 图2</em>
-</div>
-
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Advanced-Configuration.png" class="">
-<!-- ![Advanced-Configuration] -->
-<div align="center">
-  <em>ADC Advanced-Configuration 图3</em>
-</div>
-
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Interrupt-Configuration.png" class="">
-<!-- ![Interrupt-Configuration] -->
-<div align="center">
-  <em>ADC Interrupt-Configuration 图4</em>
-</div>
-
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/DMA-Configuration.png" class="">
-<!-- ![DMA-Configuration] -->
-<div align="center">
-  <em>ADC DMA-Configuration 图5</em>
-</div>
-
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/ADC-Event-Configuration.png" class="">
-<!-- ![ADC-Event-Configuration] -->
-<div align="center">
-  <em>ADC ADC-Event-Configuration 图6</em>
-</div>
-
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/PinMux.png" class="">
-<!-- ![PinMux] -->
-<div align="center">
-  <em>ADC PinMux 图7</em>
-</div>
-
-<h2 id="简易验证代码"><a href="#简易验证代码" class="headerlink" title="简易验证代码"></a>简易验证代码</h2><p>基于<code>CCS</code>开发</p>
-<pre><code class="c">/*
-4MSPS ADC简易验证工程
-uart为uart0，rx-PA11，tx-PA10，波特率567000
-*/
-#include &quot;ti_msp_dl_config.h&quot;
-#include &quot;stdio.h&quot;
-
-#define ADC_SAMPLE_SIZE (1080)
-uint16_t gADCSamples[ADC_SAMPLE_SIZE];
-volatile bool gCheckADC;
-
-void UART_transmit_for_vofa(uint16_t data);
-
-int main(void)
-&#123;
-    SYSCFG_DL_init();
-    DL_DMA_setSrcAddr(DMA, DMA_CH0_CHAN_ID, (uint32_t) DL_ADC12_getFIFOAddress(ADC_4MSPS_INST));
-    DL_DMA_setDestAddr(DMA, DMA_CH0_CHAN_ID, (uint32_t) &amp;gADCSamples[0]);
-    DL_DMA_enableChannel(DMA, DMA_CH0_CHAN_ID);
-
-    NVIC_EnableIRQ(ADC_4MSPS_INST_INT_IRQN);
-    DL_Timer_startCounter(TIMER_0_INST);
-    
-    gCheckADC = false;
-
-    while (1) &#123;
-        if (gCheckADC) &#123;
-            for (int i = 0; i &lt; ADC_SAMPLE_SIZE; ++i) 
-                UART_transmit_for_vofa(gADCSamples[i]);
-            DL_Timer_startCounter(TIMER_0_INST);
-            gCheckADC = false;
-        &#125;
-    &#125;
-
-&#125;
-
-void ADC_4MSPS_INST_IRQHandler(void) &#123;
-    switch (DL_ADC12_getPendingInterrupt(ADC_4MSPS_INST)) &#123;
-        case DL_ADC12_IIDX_DMA_DONE:
-            DL_Timer_stopCounter(TIMER_0_INST);
-            gCheckADC = true;
-            break;
-        default:
-            break;
-    &#125;
-&#125;
-//该函数用于向vofa发送FireWater格式的数据，进行可视化
-void UART_transmit_for_vofa(uint16_t data) &#123;
-    char buf[10] = &#123;0&#125;;
-    char *p = buf; 
-    sprintf(buf, &quot;%d\n&quot;, data);
-    while (*p != &#39;\0&#39;) &#123;
-        while (DL_UART_isBusy(UART_0_INST) == true) &#123;&#125;
-        DL_UART_Main_transmitData(UART_0_INST, *p);
-        p++;
-    &#125;
-&#125;
-</code></pre>
-<hr>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.ti.com.cn/cn/lit/ug/zhcub41/zhcub41.pdf?ts=1782206731884&ref_url=https%253A%252F%252Fcn.bing.com%252F">MSPM0 G 系列 80MHz 微控制器技术参考手册</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.ti.com.cn/cn/lit/ug/slau846d/slau846d.pdf?ts=1782194273283&ref_url=https%253A%252F%252Fwww.ti.com.cn%252Fproduct%252Fcn%252FMSPM0G3507">MSPM0 G-Series 80MHz Microcontrollers Technical Reference Manual</a></li>
-</ul>
+        <h1 id="OutKK-ToDo"><a href="#OutKK-ToDo" class="headerlink" title="OutKK ToDo"></a>OutKK ToDo</h1><p>这里是待办区喵~<br>什么都没有喵~<br>如果你到了这里可以去催更 OutKK 喵~</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 OutKK@qq.com </span>
