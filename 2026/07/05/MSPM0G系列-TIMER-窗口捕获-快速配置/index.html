@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MSPM0G系列 ADC-数据流讲解 | Hexo</title>
-  <meta name="keywords" content=" MSPM0G , ADC , TI , 数据流讲解 ">
-  <meta name="description" content="MSPM0G系列 ADC-数据流讲解 | Hexo">
+  <title>MSPM0G系列 TIMER-窗口捕获-快速配置 | Hexo</title>
+  <meta name="keywords" content=" MSPM0G , TI , 快速配置 , TIMER , 窗口捕获 ">
+  <meta name="description" content="MSPM0G系列 TIMER-窗口捕获-快速配置 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="概述本篇讲解如何快速配置 MSPM0G 系列 MCU 的 TIMER 工作在窗口捕获模式，有关具体原理的讲解请移步至MSPM0G系列 TIMER-特性讲解。 MSPM0G 系列 MCU 的 TIMER 支持以下三种窗口捕获模式：  周期时间捕获 脉冲宽度时间捕获 周期和脉冲宽度组合时间捕获  三者配置类似，区别在 Capture Configuration&#x2F;Single Capture">
 <meta property="og:type" content="article">
@@ -327,9 +327,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-MSPM0G系列-ADC-数据流讲解" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-MSPM0G系列-TIMER-窗口捕获-快速配置" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">MSPM0G系列 ADC-数据流讲解</h1>
+        <h1 class="article-title">MSPM0G系列 TIMER-窗口捕获-快速配置</h1>
     
     <div class="article-meta">
         
@@ -349,18 +349,20 @@
             
             <a class="color2">MSPM0G</a>
             
-            <a class="color4">ADC</a>
-            
             <a class="color3">TI</a>
             
-            <a class="color1">数据流讲解</a>
+            <a class="color5">快速配置</a>
+            
+            <a class="color1">TIMER</a>
+            
+            <a class="color5">窗口捕获</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2026-07-01 22:37:17'>2026-06-28 20:53</time>
+            发布时间 : <time class="date" title='最后更新: 2026-07-05 17:19:46'>2026-07-05 15:51</time>
         
     </div>
     <div class="article-meta">
@@ -393,7 +395,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%90%E6%AC%A1%E9%80%BC%E8%BF%91%E5%9E%8BADC"><span class="toc-text">逐次逼近型ADC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sysconfig%E9%85%8D%E7%BD%AE"><span class="toc-text">sysconfig配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E6%98%93%E9%AA%8C%E8%AF%81%E4%BB%A3%E7%A0%81"><span class="toc-text">简易验证代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sysconfig%E9%85%8D%E7%BD%AE"><span class="toc-text">sysconfig配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E6%98%93%E9%AA%8C%E8%AF%81%E4%BB%A3%E7%A0%81"><span class="toc-text">简易验证代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -410,47 +412,117 @@
     <div class="article-entry" itemprop="articleBody">
       
         <!-- 图片定义区域（通常放在文末或单独区域） -->
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本篇讲解有关 TI MSPM0G 系列 MCU 中 ADC 的数据流动过程，本质是对手册的选讲。若想全面了解请通过文末的<a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a>找到 ADC 部分进行细读。有关快速配置的方法请移步至<a href="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/" title="MSPM0G系列 ADC-4MSPS-快速配置">MSPM0G系列 ADC-4MSPS-快速配置</a>。</p>
-<p>本篇所述数据流动，包含<strong>模拟</strong>和<strong>数字</strong>两个部分，旨在让读者对片载ADC工作情况有一个全面的认知。</p>
-<h2 id="逐次逼近型ADC"><a href="#逐次逼近型ADC" class="headerlink" title="逐次逼近型ADC"></a>逐次逼近型ADC</h2><p>在步入主题前，需要了解片载ADC的类型，为逐次逼近型ADC。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本篇讲解如何快速配置 MSPM0G 系列 MCU 的 TIMER 工作在窗口捕获模式，有关具体原理的讲解请移步至<a href="/2026/07/01/todo/" title="todo">MSPM0G系列 TIMER-特性讲解</a>。</p>
+<p>MSPM0G 系列 MCU 的 TIMER 支持以下三种窗口捕获模式：</p>
+<ul>
+<li>周期时间捕获</li>
+<li>脉冲宽度时间捕获</li>
+<li>周期和脉冲宽度组合时间捕获</li>
+</ul>
+<p>三者配置类似，区别在 <strong>Capture Configuration&#x2F;Single Capture Configuration&#x2F;Capture Mode</strong> 选项的设置。本篇以<strong>脉冲宽度时间捕获模式</strong>为例进行教学</p>
 <h2 id="sysconfig配置"><a href="#sysconfig配置" class="headerlink" title="sysconfig配置"></a>sysconfig配置</h2><p>主要配置项</p>
 <pre><code>TIMER/
-|——Basic Configuration/
-|   |——Timer Mode 
-|   |——Desired Timer Period
-|   |——Start Timer
-|——Event Configuration
+|——Desired Timer Period
+|——Capture Configuration/
+|   |——Single Capture Configuration
+|——Interrupts Configuration
 </code></pre>
-<p>将对下图中红框圈起的部分进行配置修改。<br>![COMP-Main-Configuration]</p>
+<p>将对下图中红框圈起的部分进行配置修改。</p>
+<img src="/2026/07/05/MSPM0G%E7%B3%BB%E5%88%97-TIMER-%E7%AA%97%E5%8F%A3%E6%8D%95%E8%8E%B7-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/TIMER-Main-Configuration.png" class="">
+<!-- ![TIMER-Main-Configuration] -->
 <div align="center">
   <em>主要配置项</em>
 </div>
 
-<p>详细配置流程<br><img src="/./TIMER-Basic-Configuration.png" alt="TIMER-Basic-Configuration"></p>
+<p>详细配置流程</p>
+<img src="/2026/07/05/MSPM0G%E7%B3%BB%E5%88%97-TIMER-%E7%AA%97%E5%8F%A3%E6%8D%95%E8%8E%B7-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/TIMER-Desired-Timer-Period.png" class="">
+<!-- ![TIMER-Desired-Timer-Period] -->
 <div align="center">
   <em>TIMER-图1</em>
 </div>
 
-<hr>
-<p>如果<code>ULPCLK</code>和此处不一样，请调整一致。若确实要使用其它时钟频率，请移步至<a href="./MSPM0G%E7%B3%BB%E5%88%97-ADC-%E6%95%B0%E6%8D%AE%E6%B5%81%E8%AE%B2%E8%A7%A3.md">MSPM0G系列 ADC-数据流讲解</a></p>
-<p>![Basic-Configuration_2]</p>
+<img src="/2026/07/05/MSPM0G%E7%B3%BB%E5%88%97-TIMER-%E7%AA%97%E5%8F%A3%E6%8D%95%E8%8E%B7-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/TIMER-Interrupts-Configuration.png" class="">
+<!-- ![TIMER-Interrupts-Configuration] -->
 <div align="center">
-  <em>ADC-图2</em>
+  <em>TIMER-图2</em>
 </div>
 
-<h2 id="简易验证代码"><a href="#简易验证代码" class="headerlink" title="简易验证代码"></a>简易验证代码</h2><p>基于<code>CCS</code>开发，如有快速验证需求，可使用<code>uniflash</code>下载文末的<code>txt</code>文件到<code>MCU</code>上运行查看结果。</p>
+<hr>
+<h2 id="简易验证代码"><a href="#简易验证代码" class="headerlink" title="简易验证代码"></a>简易验证代码</h2><details>
+<summary>点击展开代码</summary>
+
 <pre><code class="c">/*
-4MSPS ADC简易验证工程
-uart为uart0，rx-PA11，tx-PA10，波特率567000
+TIMER-窗口捕获-快速配置简易验证工程
 */
-#include
+/*
+该工程为便于快速开始开发，具有以下功能：
+已使能时钟树使用外部晶振，在 40MHz 晶振下，主频 80MHz
+已配置串口，UART0，TX-PA10，RX-PA11，波特率-2500000，校验-EVEN，停止-1bit
+printf 重定向
+*/
 
-#define a
+#include &quot;board.h&quot;
 
-int main()&#123;
-    
+volatile uint32_t CaptureCnt;
+volatile uint32_t PulseWidth;
+volatile bool Synced;
+
+volatile char temp;
+
+int main(void)
+&#123;
+    temp = &#39;x&#39;;
+    SYSCFG_DL_init();
+
+    NVIC_ClearPendingIRQ(CAPTURE_0_INST_INT_IRQN);
+    NVIC_EnableIRQ(CAPTURE_0_INST_INT_IRQN);
+    NVIC_ClearPendingIRQ(UART_PC_INST_INT_IRQN);
+    NVIC_EnableIRQ(UART_PC_INST_INT_IRQN); 
+
+    while (1) &#123;
+        if(&#39;a&#39; == temp)&#123;
+            PulseWidth = DL_Timer_getLoadValue(CAPTURE_0_INST) - CaptureCnt;
+            float time = PulseWidth * 12.5; //us。笔者使用的是 80MHz 定时器时钟，故此处为 12.5ns
+            printf(&quot;pulse-width =  %.2f ns&quot;, time);
+            temp = &#39;x&#39;;
+        &#125;else if (&#39;b&#39; == temp) &#123;
+            Synced = false;
+            NVIC_ClearPendingIRQ(CAPTURE_0_INST_INT_IRQN);
+            NVIC_EnableIRQ(CAPTURE_0_INST_INT_IRQN);
+            temp = &#39;x&#39;;
+        &#125;
+    &#125;
+&#125;
+
+void CAPTURE_0_INST_IRQHandler(void) &#123;
+    switch (DL_TimerA_getPendingInterrupt(CAPTURE_0_INST)) &#123;
+        case DL_TIMERA_IIDX_CC0_DN:
+            if (Synced) &#123;
+                CaptureCnt = DL_TimerA_getCaptureCompareValue(CAPTURE_0_INST, DL_TIMER_CC_0_INDEX);
+                NVIC_DisableIRQ(CAPTURE_0_INST_INT_IRQN);
+            &#125; else &#123;
+                Synced = true;
+            &#125;
+            break;
+        case DL_TIMERA_IIDX_ZERO:
+            Synced = false;
+            break;
+        default:
+            break;
+    &#125;
+&#125;
+void UART_PC_INST_IRQHandler(void) &#123;
+    switch (DL_UART_getPendingInterrupt(UART_PC_INST)) &#123;
+    case DL_UART_IIDX_RX:
+        temp = DL_UART_receiveData(UART_PC_INST);
+        break;
+    default:
+        break;
+    &#125;
 &#125;
 </code></pre>
+</details>
+
 <hr>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://www.ti.com.cn/cn/lit/ug/zhcub41/zhcub41.pdf?ts=1782206731884&ref_url=https%253A%252F%252Fcn.bing.com%252F">MSPM0 G 系列 80MHz 微控制器技术参考手册</a></li>
