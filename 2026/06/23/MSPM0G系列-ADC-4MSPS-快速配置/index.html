@@ -362,7 +362,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2026-07-01 23:00:49'>2026-06-23 12:21</time>
+            发布时间 : <time class="date" title='最后更新: 2026-07-09 22:04:35'>2026-06-23 12:21</time>
         
     </div>
     <div class="article-meta">
@@ -412,8 +412,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <!-- 图片定义区域（通常放在文末或单独区域） -->
-<!-- [TIMER-Basic-Configuration]: MSPM0G系列-ADC-4MSPS-快速配置/TIMER-Basic-Configuration.png -->
-<!-- [TIMER-Event-Configuration]: ./MSPM0G系列-ADC-4MSPS-快速配置/TIMER-Event-Configuration.png -->
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本篇讲解如何快速配置MSPM0G系列MCU的ADC工作在4MSPS的采样率，有关具体原理的讲解请移步至<a href="/2026/06/28/MSPM0G%E7%B3%BB%E5%88%97-ADC-%E6%95%B0%E6%8D%AE%E6%B5%81%E8%AE%B2%E8%A7%A3/" title="MSPM0G系列 ADC-数据流讲解">MSPM0G系列 ADC-数据流讲解</a></p>
 <h2 id="sysconfig配置"><a href="#sysconfig配置" class="headerlink" title="sysconfig配置"></a>sysconfig配置</h2><p>主要配置项</p>
 <pre><code>TIMER/
@@ -436,58 +434,58 @@
 |——Event Configuration
 |——PinMux
 </code></pre>
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/TIMER-Basic-Configuration.png" class="">
-<!-- ![TIMER-Basic-Configuration](./MSPM0G系列-ADC-4MSPS-快速配置/TIMER-Basic-Configuration.png) -->
+<!-- {% asset_img TIMER-Basic-Configuration.png "" %} -->
+<p><img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/TIMER-Basic-Configuration.png" alt="TIMER-Basic-Configuration"></p>
 <div align="center">
   <em>TIMER Basic-Configuration 图1</em>
 </div>
 
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/TIMER-Event-Configuration.png" class="">
-<!-- ![TIMER-Event-Configuration] -->
+<!-- {% asset_img TIMER-Event-Configuration.png "" %} -->
+<p><img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/TIMER-Event-Configuration.png" alt="TIMER-Event-Configuration"></p>
 <div align="center">
   <em>TIMER Event-Configuration 图2</em>
 </div>
 
 <hr>
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Basic-Configuration_1.png" class="">
-<!-- ![Basic-Configuration_1] -->
+<!-- {% asset_img Basic-Configuration_1.png "" %} -->
+<p><img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Basic-Configuration_1.png" alt="Basic-Configuration_1"></p>
 <div align="center">
   <em>ADC Basic-Configuration_1 图1</em>
 </div>
 
 <p>如果<code>ULPCLK</code>和此处不一样，请调整一致。若确实要使用其它时钟频率，请移步至<a href="/2026/06/28/MSPM0G%E7%B3%BB%E5%88%97-ADC-%E6%95%B0%E6%8D%AE%E6%B5%81%E8%AE%B2%E8%A7%A3/" title="MSPM0G系列 ADC-数据流讲解">ADC-数据流讲解</a></p>
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Basic-Configuration_2.png" class="">
-<!-- ![Basic-Configuration_2] -->
+<!-- {% asset_img Basic-Configuration_2.png "" %} -->
+<p><img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Basic-Configuration_2.png" alt="Basic-Configuration_2"></p>
 <div align="center">
   <em>ADC Basic-Configuration_2 图2</em>
 </div>
 
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Advanced-Configuration.png" class="">
-<!-- ![Advanced-Configuration] -->
+<!-- {% asset_img Advanced-Configuration.png "" %} -->
+<p><img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Advanced-Configuration.png" alt="Advanced-Configuration"></p>
 <div align="center">
   <em>ADC Advanced-Configuration 图3</em>
 </div>
 
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Interrupt-Configuration.png" class="">
-<!-- ![Interrupt-Configuration] -->
+<!-- {% asset_img Interrupt-Configuration.png "" %} -->
+<p><img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/Interrupt-Configuration.png" alt="Interrupt-Configuration"></p>
 <div align="center">
   <em>ADC Interrupt-Configuration 图4</em>
 </div>
 
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/DMA-Configuration.png" class="">
-<!-- ![DMA-Configuration] -->
+<!-- {% asset_img DMA-Configuration.png "" %} -->
+<p><img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/DMA-Configuration.png" alt="DMA-Configuration"></p>
 <div align="center">
   <em>ADC DMA-Configuration 图5</em>
 </div>
 
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/ADC-Event-Configuration.png" class="">
-<!-- ![ADC-Event-Configuration] -->
+<!-- {% asset_img ADC-Event-Configuration.png "" %} -->
+<p><img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/ADC-Event-Configuration.png" alt="ADC-Event-Configuration"></p>
 <div align="center">
   <em>ADC ADC-Event-Configuration 图6</em>
 </div>
 
-<img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/PinMux.png" class="">
-<!-- ![PinMux] -->
+<!-- {% asset_img PinMux.png "" %} -->
+<p><img src="/2026/06/23/MSPM0G%E7%B3%BB%E5%88%97-ADC-4MSPS-%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE/PinMux.png" alt="PinMux"></p>
 <div align="center">
   <em>ADC PinMux 图7</em>
 </div>
